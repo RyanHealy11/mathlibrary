@@ -118,6 +118,7 @@
     <ClInclude Include="interpolation.h" />
     <ClInclude Include="matrices.h" />
     <ClInclude Include="random.h" />
+    <ClInclude Include="transform2d.h" />
     <ClInclude Include="unitTest.h" />
     <ClInclude Include="utills.h" />
     <ClInclude Include="vec2.h" />
@@ -127,6 +128,7 @@
   <ItemGroup>
     <ClCompile Include="matrices.cpp" />
     <ClCompile Include="random.cpp" />
+    <ClCompile Include="transform2d.cpp" />
     <ClCompile Include="unitTest.cpp" />
     <ClCompile Include="utills.cpp" />
     <ClCompile Include="vec2.cpp" />
