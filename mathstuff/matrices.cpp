@@ -15,7 +15,10 @@ mat3::mat3()
 
 mat3::mat3(float * ptr)
 {
-
+	for (int i = 0; i < 9; ++i) 
+	{
+		m[i] = ptr[i];
+	}
 }
 
 mat3::mat3(float m1, float m2, float m3, float m4, float m5, float m6, float m7, float m8, float m9)
@@ -129,18 +132,110 @@ void mat3::set(float m1, float m2, float m3, float m4, float m5, float m6, float
 
 void mat3::set(float * ptr)
 {
+	for (int i = 0; i < 9; ++i)
+	{
+		m[i] = ptr[i];
+	}
 }
 
 void mat3::transpose()
 {
+	mat3 result = getTranspose();
+	
+	for (int r = 0; r < 3; ++r)
+	{
+		for (int c = 0; c < 3; ++c)
+		{
+			mm[c][r] = result.mm[r][c];
+		}
+	}
 }
 
 mat3 mat3::getTranspose() const
 {
 	mat3 result; 
-	// flip row and column 
-	for	(int r = 0 ; r < 3 ; ++r) 
+	for (int r = 0; r < 3; ++r) 
+	{
 		for (int c = 0; c < 3; ++c) 
-			result.mm[r][c] = mm[c][r]; 
+		{
+			result.mm[r][c] = mm[c][r];
+		}
+	}
 	return result;
+}
+
+mat3 mat3::translation(float x, float y)
+{
+	mat3 fun;
+	fun.mm[2][0] = x;
+	fun.mm[2][1] = y;
+	return fun;
+}
+
+mat3 mat3::translation(const vec2 & vec)
+{
+	mat3 fun;
+	fun.mm[2][0] = vec.x;
+	fun.mm[2][1] = vec.y;
+	return fun;
+}
+
+mat3 mat3::rotation(float rot)
+{
+	mat3 rotation;
+	rotation.mm[0][0] = cos(rot);
+	rotation.mm[1][0] = sin(rot);
+	rotation.mm[0][1] = -sin(rot);
+	rotation.mm[1][1] = cos(rot);
+	return rotation;
+}
+
+mat3 mat3::scale(float xScale, float yScale)
+{
+	mat3 scale;
+	scale.mm[0][0] = xScale;
+	scale.mm[1][1] = yScale;
+	return scale;
+}
+
+mat3 mat3::scale(const vec2 & vec)
+{
+	mat3 scale;
+	scale.mm[0][0] = vec.x;
+	scale.mm[1][1] = vec.y;
+	return scale;
+}
+
+vec3 mat3::operator*(const vec3 & rhs) const
+{
+	vec3 stuff;
+
+	for (int i = 0; i < 3; ++i) 
+	{
+		stuff.x += (mm[0][i] * rhs.x);
+	}
+	for (int i = 0; i < 3; ++i)
+	{
+		stuff.y += (mm[1][i] * rhs.y);
+	}
+	for (int i = 0; i < 3; ++i)
+	{
+		stuff.z += (mm[2][i] * rhs.z);
+	}
+	return stuff;
+}
+
+vec2 mat3::operator*(const vec2 & rhs) const
+{
+	vec2 stuff;
+
+	for (int i = 0; i < 3; ++i)
+	{
+		stuff.x += (mm[0][i] * rhs.x);
+	}
+	for (int i = 0; i < 3; ++i)
+	{
+		stuff.y += (mm[1][i] * rhs.y);
+	}
+	return stuff;
 }
