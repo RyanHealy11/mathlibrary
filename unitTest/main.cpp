@@ -1,6 +1,7 @@
 #include <iostream>
-#include"utills.h"
+#include"matrices.h"
 #include"unitTest.h"
+#include"random.h"
 
 int main() 
 {
@@ -27,6 +28,13 @@ int main()
 	assert("diff x", 1.0f, diff.x, 0.0001f);
 	assert("diff y", 1.0f, diff.y, 0.0001f);
 	assert("diff z", 1.0f, diff.z, 0.0001f);
+
+
+	rand(5000, 10000);
+	rand(50000, 100000);
+	rand(50000, 100000);
+	rand(50000, 100000);
+	rand(50000, 100000);
 
 	return 0;
 }
