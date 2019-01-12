@@ -1,6 +1,6 @@
 #pragma once
-#include<cfloat>
-#include<cmath>
+
+
 struct vec4
 {
 	float x, y, z, w;

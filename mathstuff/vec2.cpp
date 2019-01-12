@@ -1,4 +1,6 @@
 #include "vec2.h"
+#include<cmath>
+#include<cfloat>
 
 vec2::vec2()
 {

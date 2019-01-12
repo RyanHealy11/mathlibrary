@@ -8,9 +8,11 @@
 
 //PI = 3.141592653589793238;
 
-const double DEG_TO_RAD = PI / 180;
+const double cPI = 3.141592653589793238;
 
-const double RAD_TO_DEG = 180 / PI;
+const double DEG_TO_RAD = cPI / 180;
+
+const double RAD_TO_DEG = 180 / cPI;
 
 
 int sum(int a, int b);

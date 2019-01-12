@@ -1,6 +1,6 @@
 #pragma once
-#include<cfloat>
-#include<cmath>
+
+
 struct vec2
 {
   float x, y;

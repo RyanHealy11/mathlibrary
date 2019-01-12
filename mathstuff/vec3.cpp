@@ -1,4 +1,6 @@
 #include "vec3.h"
+#include<cmath>
+#include<cfloat>
 vec3::vec3()
 {
 	x = 0;
