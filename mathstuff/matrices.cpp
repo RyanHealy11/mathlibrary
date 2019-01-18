@@ -36,17 +36,7 @@ mat3::mat3(float m1, float m2, float m3, float m4, float m5, float m6, float m7,
 
 mat3::operator float*()
 {
-	float temp[9];
-	temp[0] = m1;
-	temp[1] = m2;
-	temp[2] = m3;
-	temp[3] = m4;
-	temp[4] = m5;
-	temp[5] = m6;
-	temp[6] = m7;
-	temp[7] = m8;
-	temp[8] = m9;
-	return temp;
+	return &m1;
 }
 
 vec3 & mat3::operator[](const int index)
@@ -90,7 +80,7 @@ bool mat3::operator==(const mat3 & rhs) const
 	{
 		for (int c = 0; c < 3; ++c)
 		{
-			if (!mm[c][r] == rhs.mm[c][r]) { return false; }
+			if (!(mm[c][r] == rhs.mm[c][r])) { return false; }
 		}
 	}
 	return true;
